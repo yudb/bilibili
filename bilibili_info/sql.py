@@ -97,6 +97,12 @@ def get_cids():
         cursor.execute(sql, ())
         return cursor.fetchall()
 
+def get_comment():
+    with connection.cursor() as cursor:
+        sql = "select comment,count(comment) as cnt from cid_comment group by comment"
+        cursor.execute(sql, ())
+        return cursor.fetchall()
+
 
 def dis_connect():
     connection.close()
