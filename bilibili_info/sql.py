@@ -99,7 +99,7 @@ def get_cids():
 
 def get_comment():
     with connection.cursor() as cursor:
-        sql = "select comment,count(comment) as cnt from cid_comment group by comment"
+        sql = "select comment from cid_comment "
         cursor.execute(sql, ())
         return cursor.fetchall()
 
